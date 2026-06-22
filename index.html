@@ -1,0 +1,695 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://script.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://script.google.com;" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+  <title>Ciberweek 2026 — Universidad Anáhuac</title>
+  <link rel="icon" type="image/png" href="imagenes/favicon.png" />
+  <link rel="apple-touch-icon" href="imagenes/favicon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="imagenes/NHA-anahuac-puebla.png" alt="Universidad Anáhuac Puebla" class="loader-logo-img" />
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#hero">
+        <img src="imagenes/NHA-anahuac-puebla.png" alt="Universidad Anáhuac Puebla" class="nav-logo-img" />
+      </a>
+      <nav class="nav-links">
+        <a href="#about">Acerca de</a>
+        <a href="#schedule">Programa</a>
+        <a href="#speakers">Ponentes</a>
+        <a href="#premios">Premios</a>
+        <a href="#sponsors">Aliados</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#about">Acerca de</a>
+      <a href="#schedule">Programa</a>
+      <a href="#speakers">Ponentes</a>
+      <a href="#premios">Premios</a>
+      <a href="#sponsors">Aliados</a>
+      <a href="#contact">Contacto</a>
+    </div>
+  </header>
+
+  <!-- HERO VIDEO -->
+  <section id="hero">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline id="heroVideo">
+        <source src="video/intro.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Universidad Anáhuac</span>
+      <h1 class="hero-heading">
+        Semana de<br />
+        <span class="accent">Transformación</span><br />
+        Digital <span class="accent">2026</span>
+      </h1>
+      <p class="hero-sub">Acelera el futuro · Innova hoy · Lidera el cambio</p>
+      <div class="hero-meta">
+        <span>&#128197;&nbsp;14 – 17 de julio, 2026</span>
+        <span>&#128205;&nbsp;Campus Anáhuac Puebla</span>
+      </div>
+      <a href="#schedule" class="btn-primary">Ver Programa Completo &#8594;</a>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-dot"></div>
+      <span>Desplázate para explorar</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-light">
+    <div class="container">
+      <p class="eyebrow">El Evento</p>
+      <h2 class="section-heading">¿Qué es el Ciberweek?</h2>
+      <p class="section-body">
+        La <strong>Semana de Transformación Digital</strong> es el espacio más importante de la Red de Universidades
+        Anáhuac para explorar, debatir y aprender sobre las tecnologías emergentes que redefinen los sectores
+        educativo, empresarial y gubernamental. Cinco días intensivos de conferencias, talleres y paneles con
+        líderes de la industria.
+      </p>
+      <div class="stats-row">
+        <div class="stat-card" style="--d:0ms">
+          <div class="stat-icon">&#127981;</div>
+          <div class="stat-num">11</div>
+          <div class="stat-label">Sesiones</div>
+        </div>
+        <div class="stat-card" style="--d:100ms">
+          <div class="stat-icon">&#127942;</div>
+          <div class="stat-num">+5</div>
+          <div class="stat-label">Expertos</div>
+        </div>
+        <div class="stat-card" style="--d:200ms">
+          <div class="stat-icon">&#128101;</div>
+          <div class="stat-num">+100</div>
+          <div class="stat-label">Asistentes</div>
+        </div>
+        <div class="stat-card" style="--d:300ms">
+          <div class="stat-icon">&#127775;</div>
+          <div class="stat-num">4</div>
+          <div class="stat-label">Días</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="section-dark">
+    <div class="container">
+      <p class="eyebrow light">Programa</p>
+      <h2 class="section-heading light">Agenda de la Semana</h2>
+      <p class="section-body light">Selecciona el día y luego la sesión de capacitación que te interesa.</p>
+
+      <!-- DAY BUTTONS -->
+      <div class="day-buttons" role="tablist">
+        <button class="day-btn active" data-day="martes" role="tab" aria-selected="true">
+          <span class="day-num">14</span>
+          <span class="day-name">Martes</span>
+        </button>
+        <button class="day-btn" data-day="miercoles" role="tab" aria-selected="false">
+          <span class="day-num">15</span>
+          <span class="day-name">Miércoles</span>
+        </button>
+        <button class="day-btn" data-day="jueves" role="tab" aria-selected="false">
+          <span class="day-num">16</span>
+          <span class="day-name">Jueves</span>
+        </button>
+        <button class="day-btn" data-day="viernes" role="tab" aria-selected="false">
+          <span class="day-num">17</span>
+          <span class="day-name">Viernes</span>
+        </button>
+      </div>
+
+      <!-- SESSION PANELS -->
+      <div class="panels-wrap">
+
+        <!-- MARTES -->
+        <div class="day-panel active" id="panel-martes" role="tabpanel">
+          <div class="sessions-grid">
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge">Avances y logros T.I</div>
+                <div class="sc-time">09:00 – 10:30 h</div>
+                <h3>Sesion Hibrida — Aula 360 PLanta Alta</h3>
+                <div class="sc-speaker"><div class="avatar">T.I</div><span>Equipo de T.I</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Inaguración</li>
+                  <li>Firma de convenio</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Aula 360 Planta Alta - Sesión Hibrida</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge workshop">Taller Adobe Acrobat</div>
+                <div class="sc-time">11:00 – 12:30 h</div>
+                <h3>Sesion Hibrida — Aula 2102</h3>
+                <div class="sc-speaker"><div class="avatar">AE</div><span>Antonio Enrique Parche</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Taller práctico de Adobe Acrobat</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesion Hibrida — Aula 2102</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge">Desarrollo y Estandarización de Prompts</div>
+                <div class="sc-time">14:00 – 15:30 h</div>
+                <h3>Sesión Virtual</h3>
+                <div class="sc-speaker"><div class="avatar">GV</div><span>Lic. Guillermo Valdez Ramayo</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Desarrollo de prompts</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Virtual</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge panel">Humanos + agentes</div>
+                <div class="sc-time">16:30 – 17:30 h</div>
+                <h3>Sesión Virtual</h3>
+                <div class="sc-speaker"><div class="avatar">RG</div><span>Sr. Rodrigo Gómez Morales</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Humanos + agentes: el nuevo modelo de colaboración</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Virtual</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- MIÉRCOLES -->
+        <div class="day-panel" id="panel-miercoles" role="tabpanel" hidden>
+          <div class="sessions-grid">
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge">Taller Geneally</div>
+                <div class="sc-time">09:30 – 11:00 h</div>
+                <h3>Sesión Hibrida</h3>
+                <div class="sc-speaker"><div class="avatar">LL</div><span>Lic. Luis Lastra</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Taller Geneally</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Hibrida</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge workshop">Master class: La universidad del futuro</div>
+                <div class="sc-time">11:00 – 12:30 h</div>
+                <h3>Sesión Hibrida - Aula 360 Planta Alta</h3>
+                <div class="sc-speaker"><div class="avatar"></div><span></span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>¿Cómo la IA impacta en la educación?</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Hibrida - Aula 360 Planta Alta</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge">Charla: La IA y la Iglesia</div>
+                <div class="sc-time">13:00 – 14:00 h</div>
+                <h3>Sesion Hibrida — Sala 360 Planta Alta</h3>
+                <div class="sc-speaker"><div class="avatar">SA</div><span>P. Salvador Alejandro Arellano Gutiérrez</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <div class="sc-location">
+                  <span>&#128205; Sesion Hibrida — Sala 360 Planta Alta</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge masterclass">IA Agentic en Educación</div>
+                <div class="sc-time">14:30 – 18:00 h</div>
+                <h3>Sesión Virtual</h3>
+                <div class="sc-speaker"><div class="avatar">RG</div><span>Sr. Rodrigo Gómez Morales</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Productividad, Aprendizaje e Innovación</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Virtual</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- JUEVES -->
+        <div class="day-panel" id="panel-jueves" role="tabpanel" hidden>
+          <div class="sessions-grid">
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge">Kimatyo</div>
+                <div class="sc-time">12:00 – 13:00 h</div>
+                <h3>Aula 360 - Planta Alta</h3>
+                <div class="sc-speaker"><div class="avatar"></div><span></span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li></li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Aula 360 - Planta Alta</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- VIERNES -->
+        <div class="day-panel" id="panel-viernes" role="tabpanel" hidden>
+          <div class="sessions-grid">
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge">Panel de expertos: Higiene Digital</div>
+                <div class="sc-time">10:00 – 11:00 h</div>
+                <h3>Sesión Hibrida — Aula 360 Planta Baja</h3>
+                <div class="sc-speaker"><div class="avatar">MM</div><span>Lic. Mariana Maldonado Quiroz · Jesús Adrián Figueroa · Eric Pérez Díaz</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <ul>
+                  <li>Higiene Digital</li>
+                </ul>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Hibrida — Aula 360 Planta Baja</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="sc-front">
+                <div class="sc-badge panel">Ciberseguridad</div>
+                <div class="sc-time">12:00 – 13:00 h</div>
+                <h3>Sesión Hibrida — Aula 360 Planta Baja</h3>
+                <div class="sc-speaker"><div class="avatar">OG</div><span>Lic. Oscar de Gante Molina</span></div>
+                <button class="btn-toggle" aria-expanded="false">Ver detalles <span class="arrow">&#8675;</span></button>
+              </div>
+              <div class="sc-details" hidden>
+                <div class="sc-location">
+                  <span>&#128205; Sesión Hibrida — Aula 360 Planta Baja</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div><!-- /panels-wrap -->
+    </div>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section id="speakers" class="section-light">
+    <div class="container">
+      <p class="eyebrow">Ponentes</p>
+      <h2 class="section-heading">Voces que Inspiran</h2>
+
+      <div class="speakers-grid">
+
+        <div class="speaker-card"
+             data-name="Rodrigo Gómez Morales"
+             data-role="Sr. Technical Architect · Microsoft Innovation Hub"
+             data-tag="Microsoft Innovation Hub"
+             data-bio="Arquitecto Técnico en el Innovation Hub de Microsoft en la Ciudad de México, donde se enfoca en asesorar a clientes en la toma de decisiones técnicas para construir soluciones colaborativas y negocios del futuro basados en tecnología Microsoft. Con más de 16 años de trayectoria en Microsoft, ha desempeñado diversos roles técnicos, incluyendo posiciones en Soporte Técnico, Estrategia Tecnológica, Especialista de Soluciones y Profesional de Soluciones de Tecnología. Su experiencia abarca una amplia gama de productos como Windows, Visual Studio, Microsoft Azure y Microsoft 365. Además de su labor en Microsoft, Rodrigo ha sido docente durante 20 años en la Escuela Moderna Americana en la Ciudad de México, impartiendo clases de Ciencias Computacionales.">
+          <div class="sp-avatar" style="--c:#0067b8">
+            <img src="imagenes/Rodrigo.png" class="sp-avatar-img" alt="Rodrigo Gómez Morales" />
+          </div>
+          <div class="sp-info">
+            <strong>Rodrigo Gómez Morales</strong>
+            <span>Microsoft Innovation Hub</span>
+            <em>Sr. Technical Architect</em>
+          </div>
+        </div>
+
+        <div class="speaker-card"
+             data-name="Antonio Enrique Perchez"
+             data-role="Consultor de Soluciones Latam · Adobe Enterprise"
+             data-tag="Adobe Enterprise"
+             data-bio="Colaborador por más de 15 años en Adobe Systems Inc. como Consultor de Soluciones para Latinoamérica de Document Cloud, ayudando a las empresas a optimizar sus procesos de flujos de firma electrónica y aprobación documental. Experto en Adobe para el mercado latinoamericano en las soluciones e integraciones de Document Cloud, que abarca una cartera de soluciones para documentos digitales seguros que optimizan procesos de negocios y logran mejores experiencias en sus usuarios.">
+          <div class="sp-avatar" style="--c:#eb1000">
+            <img src="imagenes/Antonio Enrique.png" class="sp-avatar-img" alt="Antonio Enrique Perchez" />
+          </div>
+          <div class="sp-info">
+            <strong>Antonio Enrique Perchez</strong>
+            <span>Adobe Enterprise</span>
+            <em>Consultor de Soluciones Latam</em>
+          </div>
+        </div>
+
+        <div class="speaker-card"
+             data-name="P. Salvador Alejandro Arellano Gutiérrez"
+             data-role="Capellán · Universidad Anáhuac Puebla"
+             data-tag="L.C. · Anáhuac Puebla"
+             data-bio="Capellán de la Universidad Anáhuac de Puebla. Previo a su ingreso a la vida religiosa tuvo experiencia en diversas organizaciones políticas y sociales: Capacitador Nacional Juvenil del PAN y Director de Estructuras Municipales del CDE del PAN en Durango. Ingresó a la Congregación de los Legionarios de Cristo en 2009, fue ordenado diácono en 2022 y sacerdote en Roma en 2023. Licenciado en Informática por el Instituto Tecnológico de Durango, Licenciado en Humanidades por la Universidad Anáhuac, Bachiller Europeo en Filosofía y Teología por el Ateneo Pontificio Regina Apostolórum. Cuenta con diplomados en Formación de Adolescentes, Política, Doctrina Social de la Iglesia y Discernimiento Espiritual Ignaciano. Actualmente cursa una Maestría en Pensamiento Social Cristiano por el IMDOSOC y la Universidad Católica Lumen Gentium.">
+          <div class="sp-avatar" style="--c:#5c3d1e">
+            <img src="imagenes/Salvador Alejandro.png" class="sp-avatar-img" alt="P. Salvador Alejandro Arellano Gutiérrez" />
+          </div>
+          <div class="sp-info">
+            <strong>P. Salvador Alejandro Arellano Gutiérrez</strong>
+            <span>Universidad Anáhuac Puebla</span>
+            <em>Capellán</em>
+          </div>
+        </div>
+
+        <div class="speaker-card"
+             data-name="Dr. Jesús Adrián Figueroa Hernández"
+             data-role="Doctor en Psicología · Universidad de Guadalajara"
+             data-tag="Psicología &amp; Salud"
+             data-bio="Doctor en Psicología con Orientación en Calidad de Vida y Salud por la Universidad de Guadalajara, cursado en el Centro Universitario del Sur. Obtuvo su licenciatura en Psicología y su Maestría en Ciencias Biomédicas y de la Salud en la Universidad Autónoma del Estado de Hidalgo. Actualmente es Profesor Investigador en la Universidad Anáhuac Puebla; su línea de investigación se centra en los trastornos alimentarios y de la ingestión en relación con las funciones ejecutivas. Ha sido galardonado con el premio a la Excelencia Académica del Docente en el ciclo Agosto-Mayo 2023-2024. Ha impartido talleres de Terapia de Remediación Cognitiva, Metodología de la Investigación en Psicología y Análisis de Datos Cuantitativos. Es autor y coautor de diversos artículos científicos a nivel nacional e internacional.">
+          <div class="sp-avatar" style="--c:#1a6b3c">JF</div>
+          <div class="sp-info">
+            <strong>Dr. Jesús Adrián Figueroa Hernández</strong>
+            <span>Universidad de Guadalajara</span>
+            <em>Doctor en Psicología</em>
+          </div>
+        </div>
+
+        <div class="speaker-card"
+             data-name="Lic. Guillermo Valdez Ramayo"
+             data-role="Jefe de Servicios Computacionales · Universidad Anáhuac Mayab"
+             data-tag="Anáhuac Mayab"
+             data-bio="Con más de dos décadas de experiencia en servicio de TI, arquitectura de software e infraestructura tecnológica, es el actual Jefe de Servicios Computacionales en la Universidad Anáhuac Mayab. Licenciado en Ciencias de la Computación y Maestro en Educación, se especializa en liderar soluciones de Inteligencia Artificial aplicadas al ecosistema educativo; es el creador de la arquitectura tecnológica de IA de la Anáhuac Mayab y de la optimización de sus canales digitales mediante RocketChat. En este congreso presenta Mentes Amplificadas: Libera el Poder de la IA en la Anáhuac, una sesión diseñada para que líderes de acción positiva dominen los frameworks de prompts esenciales que automatizarán sus procesos, elevarán su comunicación y transformarán su capacidad de resolución en el entorno universitario.">
+          <div class="sp-avatar" style="--c:#7b2d8b">
+            <img src="imagenes/Memo Valdez.png" class="sp-avatar-img" alt="Lic. Guillermo Valdez Ramayo" />
+          </div>
+          <div class="sp-info">
+            <strong>Lic. Guillermo Valdez Ramayo</strong>
+            <span>Universidad Anáhuac Mayab</span>
+            <em>Jefe de Servicios Computacionales</em>
+          </div>
+        </div>
+
+        <div class="speaker-card"
+             data-name="Lic. Mariana Maldonado Quiroz"
+             data-role="Especialista en Bienestar Laboral · Universidad Anáhuac Puebla"
+             data-tag="Bienestar Organizacional"
+             data-bio="Licenciada en Derecho y Maestra en Desarrollo de Capital Humano. Certificada como Chief Happiness Officer por Big Bienestar. Se desempeña como Especialista en Bienestar Laboral en la Universidad Anáhuac Puebla, donde lidera estrategias institucionales para fortalecer la salud integral, el compromiso organizacional y la calidad de vida de los colaboradores. Su trabajo abarca el diseño e implementación de programas de bienestar físico, emocional, social y financiero, así como iniciativas de reconocimiento, cultura organizacional, onboarding, prevención de riesgos psicosociales y cumplimiento de normativa laboral. De manera paralela, participa como docente universitaria, compartiendo herramientas de liderazgo, desarrollo profesional y formación humana.">
+          <div class="sp-avatar" style="--c:#c2185b">MM</div>
+          <div class="sp-info">
+            <strong>Lic. Mariana Maldonado Quiroz</strong>
+            <span>Universidad Anáhuac Puebla</span>
+            <em>Especialista en Bienestar Laboral</em>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tooltip flotante de ponentes -->
+      <div id="speakerTooltip" aria-hidden="true" aria-live="polite">
+        <div class="spt-header">
+          <div class="spt-avatar" id="sptAvatar"></div>
+          <div>
+            <div class="spt-name" id="sptName"></div>
+            <div class="spt-role" id="sptRole"></div>
+          </div>
+        </div>
+        <p class="spt-bio" id="sptBio"></p>
+        <span class="spt-tag" id="sptTag"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIOS SORPRESA -->
+  <section id="premios" class="section-premios">
+    <div class="container">
+      <p class="eyebrow light">Premios</p>
+      <h2 class="section-heading light">Premios Sorpresa</h2>
+      <p class="section-body light">
+        Participa, aprende y gana. Durante la Semana de Transformación Digital repartiremos premios sorpresa entre los asistentes. ¡No te pierdas ninguna sesión!
+      </p>
+
+      <div class="premios-grid">
+
+        <div class="premio-card">
+          <span class="premio-icon">&#127873;</span>
+          <div class="premio-num">Premio 01</div>
+          <div class="premio-title">Premio Sorpresa</div>
+          <p class="premio-desc">Una sorpresa especial aguarda al primer ganador. ¿Serás tú?</p>
+        </div>
+
+        <div class="premio-card">
+          <span class="premio-icon">&#127873;</span>
+          <div class="premio-num">Premio 02</div>
+          <div class="premio-title">Premio Sorpresa</div>
+          <p class="premio-desc">El segundo premio es igual de emocionante. ¡No te lo pierdas!</p>
+        </div>
+
+        <div class="premio-card">
+          <span class="premio-icon">&#127873;</span>
+          <div class="premio-num">Premio 03</div>
+          <div class="premio-title">Premio Sorpresa</div>
+          <p class="premio-desc">Tercer ganador, tercer premio sorpresa. La suerte puede ser tuya.</p>
+        </div>
+
+        <div class="premio-card premio-especial">
+          <span class="premio-icon">&#127942;</span>
+          <div class="premio-num">Gran Premio</div>
+          <div class="premio-title">Premio Especial</div>
+          <p class="premio-desc">El gran premio de la semana. El más esperado, el más sorprendente.</p>
+        </div>
+
+      </div>
+
+      <div class="premios-note">
+        <strong>&#10024; ¿Cómo participar?</strong> Necesitas asistir al 80% de las sesiones y estar presente al momento del sorteo. ¡A mayor participación, más oportunidades de ganar!
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section id="sponsors" class="section-mid">
+    <div class="container">
+      <p class="eyebrow">Aliados</p>
+      <h2 class="section-heading">Nuestros Patrocinadores</h2>
+      <div class="ticker-wrap">
+        <div class="ticker-track">
+          <div class="ticker-item"><img src="imagenes/logos/Microsoft-Logo.png" alt="Microsoft" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Adobe-Logo.png" alt="Adobe" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/genially-logo.png" alt="Genially" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Logo-Digita-Web.png" alt="Digita" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Microsoft-Logo.png" alt="Microsoft" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Adobe-Logo.png" alt="Adobe" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/genially-logo.png" alt="Genially" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Logo-Digita-Web.png" alt="Digita" /></div>
+
+          <div class="ticker-item"><img src="imagenes/logos/Microsoft-Logo.png" alt="Microsoft" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Adobe-Logo.png" alt="Adobe" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/genially-logo.png" alt="Genially" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Logo-Digita-Web.png" alt="Digita" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Microsoft-Logo.png" alt="Microsoft" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Adobe-Logo.png" alt="Adobe" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/genially-logo.png" alt="Genially" /></div>
+          <div class="ticker-item"><img src="imagenes/logos/Logo-Digita-Web.png" alt="Digita" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="container footer-cols">
+        <div class="fcol brand-col">
+          <img src="imagenes/NHA-anahuac-puebla.png" alt="Universidad Anáhuac Puebla" class="footer-logo-img" />
+          <div class="footer-social">
+            <a href="https://www.facebook.com/universidadanahuacpuebla/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/uanahuacpuebla/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.anahuac.mx/puebla/" target="_blank" rel="noopener" aria-label="Sitio web Anáhuac Puebla"><i class="fas fa-globe"></i></a>
+          </div>
+        </div>
+        <div class="fcol">
+          <h4>Navegación</h4>
+          <a href="#about">Acerca de</a>
+          <a href="#schedule">Programa</a>
+          <a href="#speakers">Ponentes</a>
+          <a href="#sponsors">Aliados</a>
+        </div>
+        <div class="fcol">
+          <h4>Contacto</h4>
+          <p>Av. Cúmulo de Virgo 1000<br />Reserva Territorial Atlixcáyotl<br />San Andrés Cholula, Puebla, C.P. 72820</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>&copy; 2026 Universidad Anáhuac · Todos los derechos reservados</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DRONE -->
+  <!-- Hidden SVG that defines the curved flight path -->
+  <svg id="dronePath" xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 1400 600"
+       style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;opacity:0;z-index:-1"
+       aria-hidden="true">
+    <path id="flightPath"
+          d="M -120,280
+             C 50,80  200,500 400,320
+             S 700,60  900,280
+             S 1150,520 1300,200
+             S 1520,350 1650,180"
+          fill="none" stroke="none"/>
+  </svg>
+
+  <!-- The drone image itself -->
+  <img id="droneEl"
+       src="imagenes/dron.gif"
+       alt="Dron volando"
+       width="90" />
+
+  <!-- GSAP core + plugins (free / public CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+
+  <!-- REGISTRATION MODAL -->
+  <div id="regModal" class="reg-overlay" role="dialog" aria-modal="true" aria-labelledby="regTitle" hidden>
+    <div class="reg-box">
+      <button class="reg-close" id="regClose" aria-label="Cerrar">&#10005;</button>
+
+      <div class="reg-header">
+        <div class="reg-icon">&#9998;</div>
+        <h3 id="regTitle">Registro de Sesión</h3>
+        <p id="regSessionLabel" class="reg-session-label"></p>
+      </div>
+
+      <form id="regForm" novalidate>
+        <input type="hidden" id="regDia"    name="dia" />
+        <input type="hidden" id="regSesion" name="sesion" />
+
+        <div class="reg-field">
+          <label for="regCorreo">Correo institucional <span class="req">*</span></label>
+          <input type="email" id="regCorreo" name="correo"
+                 placeholder="usuario@anahuac.mx" required autocomplete="email"
+                 pattern="^[^\s@]+@anahuac\.mx$"
+                 title="Solo se aceptan correos con dominio @anahuac.mx" />
+        </div>
+
+        <div class="reg-field">
+          <label>Modalidad <span class="req">*</span></label>
+          <div class="reg-radio-group">
+            <label class="reg-radio">
+              <input type="radio" name="modalidad" value="Presencial" required />
+              <span>Presencial</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="modalidad" value="Online" />
+              <span>Online</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="reg-field">
+          <label for="regArea">Área <span class="req">*</span></label>
+          <select id="regArea" name="area" required>
+            <option value="">Selecciona tu área o escuela a la que perteneces</option>
+            <option value="Vicerrectoría Académica">Vicerrectoría Académica</option>
+            <option value="Esc. Humanidades">Esc. Humanidades</option>
+            <option value="Esc. Economía y Negocios">Esc. Economía y Negocios</option>
+            <option value="Esc. Ingeniería y Actuaría">Esc. Ingeniería y Actuaría</option>
+            <option value="Esc. Psicología">Esc. Psicología</option>
+            <option value="Esc. Comunicación">Esc. Comunicación</option>
+            <option value="Esc. Derecho">Esc. Derecho</option>
+            <option value="Esc. Arquitectura y Diseño">Esc. Arquitectura y Diseño</option>
+            <option value="Esc. Relaciones Internacionales">Esc. Relaciones Internacionales</option>
+            <option value="Esc. Ciencias de la Salud">Esc. Ciencias de la Salud</option>
+            <option value="Esc. Turismo y Gastronomía">Esc. Turismo y Gastronomía</option>
+            <option value="Vicerrectoría de Administración y Finanzas">Vicerrectoría de Administración y Finanzas</option>
+            <option value="Dir. Desarrollo Institucional">Dir. Desarrollo Institucional</option>
+            <option value="Dir. Vida Universitaria">Dir. Vida Universitaria</option>
+            <option value="Juan Pablo II">Juan Pablo II</option>
+          </select>
+        </div>
+
+        <button type="submit" class="reg-submit" id="regSubmit">
+          <span class="reg-btn-text">Confirmar registro</span>
+          <span class="reg-btn-loading" hidden>Enviando…</span>
+        </button>
+
+        <p id="regMsg" class="reg-msg" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/drone.js"></script>
+  <script src="js/registro.js"></script>
+</body>
+</html>
