@@ -4,7 +4,7 @@ const TOKEN = 'CiberweekAnahuac2026';
 /* Inserción del botón "Registrarme" en cada detalle de sesión */
 document.querySelectorAll('.sc-details').forEach(detail => {
   const card    = detail.closest('.session-card');
-  const title   = card.querySelector('h3')?.textContent.trim() ?? '';
+  const title   = card.querySelector('.sc-badge')?.textContent.trim() ?? '';
   const panel   = card.closest('.day-panel');
   const dayBtn  = document.querySelector(`.day-btn[data-day="${panel?.id?.replace('panel-', '')}"]`);
   const dayName = dayBtn?.querySelector('.day-name')?.textContent.trim() ?? '';
@@ -18,7 +18,14 @@ document.querySelectorAll('.sc-details').forEach(detail => {
 
   detail.appendChild(btn);
 
-  btn.addEventListener('click', () => openModal(dayName, title));
+  const SOLO_ONLINE = [
+    'Avances y logros T.I',
+    'Desarrollo y Estandarización de Prompts',
+    'Humanos + agentes',
+    'Taller Geneally',
+    'IA Agentic en Educación',
+  ];
+  btn.addEventListener('click', () => openModal(dayName, title, SOLO_ONLINE.includes(title)));
 });
 
 /* Elementos del modal */
@@ -41,13 +48,25 @@ function getModalidad() {
 }
 
 /* Abrir / cerrar */
-function openModal(dia, sesion) {
+function openModal(dia, sesion, soloOnline = false) {
   diaInput.value    = dia;
   sesionInput.value = sesion;
   labelEl.textContent = `${dia} · ${sesion}`;
   correoInput.value = '';
   areaInput.value   = '';
+
+  const presencialLabel = form.querySelector('input[name="modalidad"][value="Presencial"]')?.closest('label.reg-radio');
+  const onlineRadio     = form.querySelector('input[name="modalidad"][value="Online"]');
+
   form.querySelectorAll('input[name="modalidad"]').forEach(r => r.checked = false);
+
+  if (soloOnline) {
+    if (presencialLabel) presencialLabel.style.display = 'none';
+    if (onlineRadio) onlineRadio.checked = true;
+  } else {
+    if (presencialLabel) presencialLabel.style.display = '';
+  }
+
   hideMsg();
   modal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
