@@ -82,6 +82,9 @@ document.querySelectorAll('.btn-toggle').forEach(btn => {
       b.setAttribute('aria-expanded', 'false');
     });
 
+    // Cerrar cualquier grabación abierta al mostrar detalles
+    closeAllVideos(panel);
+
     // Alternar el elemento clicado
     if (!isOpen) {
       details.hidden = false;
@@ -91,6 +94,101 @@ document.querySelectorAll('.btn-toggle').forEach(btn => {
       // Desplazamiento suave de la tarjeta a la vista
       setTimeout(() => {
         card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 60);
+    }
+  });
+});
+
+/* Grabaciones de sesión — se muestran resaltadas en la misma tarjeta */
+function closeAllVideos(scope) {
+  scope.querySelectorAll('.sc-video').forEach(v => {
+    v.hidden = true;
+    v.innerHTML = '';
+  });
+  scope.querySelectorAll('.session-card').forEach(c => c.classList.remove('video-open'));
+  scope.querySelectorAll('.btn-video').forEach(b => {
+    b.classList.remove('open');
+    b.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function sharePointEmbedUrl(url) {
+  try {
+    const u = new URL(url);
+    if (/\.sharepoint\.com$/i.test(u.hostname) && /\/_layouts\/15\/stream\.aspx$/i.test(u.pathname)) {
+      const id = u.searchParams.get('id');
+      const embed = new URL(url);
+      embed.pathname = u.pathname.replace(/stream\.aspx$/i, 'embed.aspx');
+      embed.search = '';
+      if (id) embed.searchParams.set('id', id);
+      return embed.toString();
+    }
+  } catch (e) { /* not a valid URL */ }
+  return null;
+}
+
+function buildVideoEmbed(url) {
+  if (!url) {
+    const p = document.createElement('p');
+    p.className = 'video-unavailable';
+    p.textContent = 'La grabación de esta sesión estará disponible próximamente.';
+    return p;
+  }
+
+  const wrap = document.createElement('div');
+  wrap.className = 'video-embed';
+
+  let youtubeId = null;
+  const ytWatch = url.match(/[?&]v=([^&]+)/);
+  const ytShort = url.match(/youtu\.be\/([^?&]+)/);
+  const ytEmbedded = url.match(/youtube\.com\/embed\/([^?&]+)/);
+  if (ytWatch) youtubeId = ytWatch[1];
+  else if (ytShort) youtubeId = ytShort[1];
+  else if (ytEmbedded) youtubeId = ytEmbedded[1];
+
+  const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+  const spEmbed = sharePointEmbedUrl(url);
+
+  if (spEmbed) {
+    wrap.innerHTML = `<iframe src="${spEmbed}" title="Grabación de la sesión" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  } else if (youtubeId) {
+    wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${youtubeId}" title="Grabación de la sesión" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  } else if (vimeoMatch) {
+    wrap.innerHTML = `<iframe src="https://player.vimeo.com/video/${vimeoMatch[1]}" title="Grabación de la sesión" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  } else if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)) {
+    wrap.innerHTML = `<video controls autoplay src="${url}"></video>`;
+  } else {
+    wrap.innerHTML = `<iframe src="${url}" title="Grabación de la sesión" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  }
+
+  return wrap;
+}
+
+document.querySelectorAll('.btn-video').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card  = btn.closest('.session-card');
+    const video = card.querySelector('.sc-video');
+    const panel = btn.closest('.day-panel');
+    const isOpen = !video.hidden;
+
+    // Cerrar detalles abiertos y otras grabaciones del mismo panel
+    panel.querySelectorAll('.sc-details').forEach(d => { d.hidden = true; });
+    panel.querySelectorAll('.btn-toggle').forEach(b => {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+    });
+    closeAllVideos(panel);
+
+    if (!isOpen) {
+      video.innerHTML = '';
+      video.appendChild(buildVideoEmbed(btn.dataset.video.trim()));
+      video.hidden = false;
+      card.classList.add('video-open');
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 60);
     }
   });
