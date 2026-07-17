@@ -1,13 +1,19 @@
 const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyE5-Gu_9jSg-jogVum_j_frxpccZLHpNXhO1NT8Dox4M3NEvmQ3qMXAllBonHaMeYGhQ/exec';
 const TOKEN = 'CiberweekAnahuac2026';
 
-/* Inserción del botón "Registrarme" en cada detalle de sesión */
-document.querySelectorAll('.sc-details').forEach(detail => {
-  const card    = detail.closest('.session-card');
+/* Inserción del botón "Registrarme" en cada tarjeta de sesión */
+document.querySelectorAll('.session-card').forEach(card => {
   const title   = card.querySelector('.sc-badge')?.textContent.trim() ?? '';
   const panel   = card.closest('.day-panel');
   const dayBtn  = document.querySelector(`.day-btn[data-day="${panel?.id?.replace('panel-', '')}"]`);
   const dayName = dayBtn?.querySelector('.day-name')?.textContent.trim() ?? '';
+
+  let actions = card.querySelector('.sc-actions');
+  if (!actions) {
+    actions = document.createElement('div');
+    actions.className = 'sc-actions';
+    card.querySelector('.sc-front').appendChild(actions);
+  }
 
   const btn = document.createElement('button');
   btn.type      = 'button';
@@ -16,7 +22,7 @@ document.querySelectorAll('.sc-details').forEach(detail => {
   btn.dataset.sesion = title;
   btn.innerHTML = '&#9998; Registrarme';
 
-  detail.appendChild(btn);
+  actions.appendChild(btn);
 
   const SOLO_ONLINE = [
     'Avances y logros T.I',

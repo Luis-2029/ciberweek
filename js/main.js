@@ -65,40 +65,6 @@ dayButtons.forEach(btn => {
   });
 });
 
-/* Acordeón de detalles de sesión */
-document.querySelectorAll('.btn-toggle').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const card    = btn.closest('.session-card');
-    const details = card.querySelector('.sc-details');
-    const isOpen  = !details.hidden;
-
-    // Cerrar todos los demás detalles abiertos en el mismo panel
-    const panel = btn.closest('.day-panel');
-    panel.querySelectorAll('.sc-details').forEach(d => {
-      d.hidden = true;
-    });
-    panel.querySelectorAll('.btn-toggle').forEach(b => {
-      b.classList.remove('open');
-      b.setAttribute('aria-expanded', 'false');
-    });
-
-    // Cerrar cualquier grabación abierta al mostrar detalles
-    closeAllVideos(panel);
-
-    // Alternar el elemento clicado
-    if (!isOpen) {
-      details.hidden = false;
-      btn.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-
-      // Desplazamiento suave de la tarjeta a la vista
-      setTimeout(() => {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 60);
-    }
-  });
-});
-
 /* Grabaciones de sesión — se muestran resaltadas en la misma tarjeta */
 function closeAllVideos(scope) {
   scope.querySelectorAll('.sc-video').forEach(v => {
@@ -171,12 +137,7 @@ document.querySelectorAll('.btn-video').forEach(btn => {
     const panel = btn.closest('.day-panel');
     const isOpen = !video.hidden;
 
-    // Cerrar detalles abiertos y otras grabaciones del mismo panel
-    panel.querySelectorAll('.sc-details').forEach(d => { d.hidden = true; });
-    panel.querySelectorAll('.btn-toggle').forEach(b => {
-      b.classList.remove('open');
-      b.setAttribute('aria-expanded', 'false');
-    });
+    // Cerrar otras grabaciones abiertas del mismo panel
     closeAllVideos(panel);
 
     if (!isOpen) {

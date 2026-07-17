@@ -642,8 +642,8 @@ section { padding: 96px 0; }
   gap: 10px;
 }
 
-.btn-toggle,
-.btn-video {
+.btn-video,
+.btn-pdf {
   background: none;
   border: 1px solid rgba(244,124,0,.4);
   color: var(--orange-lite);
@@ -657,20 +657,8 @@ section { padding: 96px 0; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
 }
-
-.btn-toggle:hover {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: var(--white);
-}
-
-.btn-toggle .arrow {
-  display: inline-block;
-  transition: transform var(--transition);
-}
-
-.btn-toggle.open .arrow { transform: rotate(180deg); }
 
 .btn-video {
   border-color: rgba(26,82,118,.4);
@@ -694,59 +682,20 @@ section { padding: 96px 0; }
   font-size: .7rem;
 }
 
-/* Details panel */
-.sc-details {
-  padding: 14px 20px;
-  border-top: 1px solid rgba(45,58,107,.12);
-  animation: detailsIn .35s ease;
+.btn-pdf {
+  border-color: rgba(39,116,63,.4);
+  color: #27743f;
 }
 
-@keyframes detailsIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+.btn-pdf:hover {
+  background: #27743f;
+  border-color: #27743f;
+  color: var(--white);
 }
 
-.sc-details p {
-  font-size: .9rem;
-  color: rgba(45,58,107,.75);
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-
-.sc-details ul {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.sc-details ul li {
-  font-size: .83rem;
-  color: rgba(45,58,107,.7);
-  padding-left: 16px;
-  position: relative;
-}
-
-.sc-details ul li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--orange);
-  font-weight: 700;
-}
-
-.sc-location {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-.sc-location span {
-  font-size: .78rem;
-  color: rgba(45,58,107,.5);
-  font-family: var(--font-head);
-  font-weight: 600;
+.btn-pdf .icon {
+  display: inline-block;
+  font-size: .7rem;
 }
 
 /* Video de la grabación */
@@ -1324,12 +1273,11 @@ footer {
   border: 1px solid rgba(229,62,62,.2);
 }
 
-/* "Registrarme" button inside session details */
+/* "Registrarme" button inside session actions — oculto: el registro ya no está activo */
 .btn-register {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 6px;
-  margin-top: 16px;
   background: var(--orange);
   color: var(--white);
   border: none;
@@ -1532,8 +1480,6 @@ footer {
 
   .stats-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .premios-grid { grid-template-columns: 1fr; }
-
-  .sc-details ul { grid-template-columns: 1fr; }
 
   .hero-meta { flex-direction: column; gap: 10px; }
 
