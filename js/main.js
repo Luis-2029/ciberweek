@@ -78,19 +78,8 @@ function closeAllVideos(scope) {
   });
 }
 
-function sharePointEmbedUrl(url) {
-  try {
-    const u = new URL(url);
-    if (/\.sharepoint\.com$/i.test(u.hostname) && /\/_layouts\/15\/stream\.aspx$/i.test(u.pathname)) {
-      const id = u.searchParams.get('id');
-      const embed = new URL(url);
-      embed.pathname = u.pathname.replace(/stream\.aspx$/i, 'embed.aspx');
-      embed.search = '';
-      if (id) embed.searchParams.set('id', id);
-      return embed.toString();
-    }
-  } catch (e) { /* not a valid URL */ }
-  return null;
+function isSharePointUrl(url) {
+  try { return /\.sharepoint\.com$/i.test(new URL(url).hostname); } catch (e) { return false; }
 }
 
 function buildVideoEmbed(url) {
@@ -113,11 +102,8 @@ function buildVideoEmbed(url) {
   else if (ytEmbedded) youtubeId = ytEmbedded[1];
 
   const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-  const spEmbed = sharePointEmbedUrl(url);
 
-  if (spEmbed) {
-    wrap.innerHTML = `<iframe src="${spEmbed}" title="Grabación de la sesión" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-  } else if (youtubeId) {
+  if (youtubeId) {
     wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${youtubeId}" title="Grabación de la sesión" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
   } else if (vimeoMatch) {
     wrap.innerHTML = `<iframe src="https://player.vimeo.com/video/${vimeoMatch[1]}" title="Grabación de la sesión" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
@@ -132,6 +118,14 @@ function buildVideoEmbed(url) {
 
 document.querySelectorAll('.btn-video').forEach(btn => {
   btn.addEventListener('click', () => {
+    const url = btn.dataset.video ? btn.dataset.video.trim() : '';
+
+    // Los enlaces de SharePoint no se pueden embeber de forma confiable (bloqueo de cookies de terceros)
+    if (url && isSharePointUrl(url)) {
+      window.open(url, '_blank', 'noopener');
+      return;
+    }
+
     const card  = btn.closest('.session-card');
     const video = card.querySelector('.sc-video');
     const panel = btn.closest('.day-panel');
