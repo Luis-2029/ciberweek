@@ -451,12 +451,50 @@ section { padding: 96px 0; }
 }
 
 /* DAY BUTTONS */
+.schedule-toolbar {
+  position: relative;
+  margin-bottom: 52px;
+}
+
 .day-buttons {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 52px;
+}
+
+.semblanzas-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.5);
+  border: 2px solid rgba(45,58,107,.2);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: rgba(45,58,107,.8);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  animation: fadeUp .5s .1s both, semblanzasFloat 2.2s ease-in-out .8s infinite;
+}
+
+.semblanzas-btn:hover {
+  border-color: var(--orange);
+  color: var(--white);
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  box-shadow: 0 8px 28px rgba(244,124,0,.4);
+}
+
+@keyframes semblanzasFloat {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50%       { transform: translateY(calc(-50% - 9px)) scale(1.03); }
 }
 
 .day-btn {
@@ -642,6 +680,21 @@ section { padding: 96px 0; }
   gap: 10px;
 }
 
+.sc-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: rgba(244,124,0,.08);
+  border: 1px solid rgba(244,124,0,.2);
+  border-radius: 10px;
+  font-size: .8rem;
+  line-height: 1.5;
+  color: rgba(45,58,107,.75);
+}
+
+.sc-note strong {
+  color: var(--orange-lite);
+}
+
 .btn-video,
 .btn-pdf {
   background: none;
@@ -694,6 +747,34 @@ section { padding: 96px 0; }
 }
 
 .btn-pdf .icon {
+  display: inline-block;
+  font-size: .7rem;
+}
+
+.btn-guide {
+  background: none;
+  border: 1px solid rgba(123,45,139,.4);
+  color: #7b2d8b;
+  font-family: var(--font-head);
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.btn-guide:hover {
+  background: #7b2d8b;
+  border-color: #7b2d8b;
+  color: var(--white);
+}
+
+.btn-guide .icon {
   display: inline-block;
   font-size: .7rem;
 }
@@ -1477,6 +1558,9 @@ footer {
   .day-buttons { gap: 10px; }
   .day-btn { min-width: 100px; padding: 14px 18px; }
   .day-num { font-size: 1.6rem; }
+
+  .schedule-toolbar { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .semblanzas-btn { position: static; animation: fadeUp .5s .1s both, btnFloat 2.2s ease-in-out .8s infinite; }
 
   .stats-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .premios-grid { grid-template-columns: 1fr; }
